@@ -392,7 +392,7 @@ function register_customer(phone_input){
     
     if(phone_rvcd != "invalid"){
 
-        
+
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             // Process our return data
@@ -614,3 +614,26 @@ function book_suggestion(){
 
 
 
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                      M I N O R     F U N C T I O N S
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+function name_entry_check(){
+    if((document.getElementById("first_name_input").value.length>1) && (document.getElementById("last_name_input").value.length>1)){
+        document.getElementById("bike_brand_input").disabled = false;
+        document.getElementById("bike_model_input").disabled = false;
+        document.getElementById("bike_color_input").disabled = false;
+    }
+}
+
+function text_opt_in_format(){
+    if(document.getElementById("text_opt_in").checked = true){
+        document.getElementById("text_opt_in").value = 1;
+    }
+    else{
+        document.getElementById("text_opt_in").value = 0;
+    }
+}

@@ -22,7 +22,7 @@ class Customer{
             return $this->name;
         }
     
-    }
+    
 }
 
 

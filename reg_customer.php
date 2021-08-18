@@ -1,10 +1,11 @@
 <?php
+header('Location: addBike.php');
 
-$fname = val($_POST["firstname_input"]);  
-$lname = val($_POST["lastname_input"]);  
+$fname = val($_POST["first_name_input"]);  
+$lname = val($_POST["last_name_input"]);  
 $email = val($_POST["email_input"]);  
 $phone = val($_POST["phone_input"]);  
-$text_opt = val($_POST["text_opt_input"]);  
+$text_opt = val($_POST["text_opt_in"]);  
 
 function val($data) {
 	$data = trim($data);
@@ -40,4 +41,8 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+
+
+
+
 ?>

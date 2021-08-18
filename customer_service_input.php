@@ -14,7 +14,7 @@
     </head>
     <body>
 
-        <form method="POST" action="serviceSked.php">
+        <form method="POST" action="reg_customer.php">
             <div class="banner">
                 <h1>Service Scheduler</h1>
             </div>
@@ -22,7 +22,9 @@
             <div class="contact-item">
                 <div class="item">
                     <p>Phone</p>
-                    <input id="phone_input" type="phone" name="phone" placeholder="(###) ###-####" required autocomplete="on" onchange='populate_customer_info()'/>
+                    <input id="phone_input" type="phone" name="phone_input" placeholder="(###) ###-####" required autocomplete="on" onchange='populate_customer_info()'/>
+                    <input type="checkbox" id="text_opt_in" name ="text_opt_in" value=0 onchange='text_opt_in_format()'>
+                    <label for="text_opt_in">Receive text message notifications?</label><br>
                 </div>
             </div>
 
@@ -30,8 +32,8 @@
             <div class="item">
                 <p>Name</p>
                 <div class="name-item">
-                    <input id="first_name_input" type="text" name="name" placeholder="First" disabled="true" required/>
-                    <input id="last_name_input" type="text" name="name" placeholder="Last" disabled="true" required/>
+                    <input id="first_name_input" type="text" name="first_name_input" placeholder="First" disabled="true" required onchange='name_entry_check()'/>
+                    <input id="last_name_input" type="text" name="last_name_input" placeholder="Last" disabled="true" required onchange='name_entry_check()'/>
                 </div>
             </div>
 
@@ -39,20 +41,20 @@
             <div class="contact-item">
                 <div class="item">
                     <p>Email</p>
-                    <input id="email_input" type="email" name="email" disabled="true"/>
+                    <input id="email_input" type="email" name="email_input" disabled="true"/>
                 </div>
             </div>
             <div class="item">
                 <p>Bike Brand</p>
-                <input id="bike_brand_input" type="text" name="brand" disabled="true"/>
+                <input id="bike_brand_input" type="text" name="bike_brand_input" disabled="true"/>
                 </div>
             <div class="item">
                 <p>Model</p>
-                <input id="bike_model_input" type="text" name="model" disabled="true"/>
+                <input id="bike_model_input" type="text" name="bike_model_input" disabled="true"/>
             </div>
             <div class="item">
                 <p>Color</p>
-                <input id="bike_color_input" type="text" name="color" disabled="true"/>
+                <input id="bike_color_input" type="text" name="bike_color_input" disabled="true"/>
             </div>
             <br><br>
             <div class="btn-block">
