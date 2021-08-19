@@ -79,7 +79,6 @@
         <p id="text_opt"></P>
     </div>
     <script>
-        
         var fname = "<?php echo $fname; ?>";
         var lname = "<?php echo $lname; ?>";
         var phone = "<?php echo $phone; ?>";
