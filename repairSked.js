@@ -606,6 +606,32 @@ function book_suggestion(){
 */
 
 
+function fill_customer_info(fname, lname, phone, text_opt){
+    const d = new Date();
+    var year = d.getFullYear();
+    var month = get_month(d.getMonth());
+    var date = d.getDate();
+    var day = get_weekday(d.getDay());
+    var hours = d.getHours();
+    var minutes = d.getMinutes();
+
+    var curr_date = day + " " + month + " " + date + ", " + year;
+    var curr_time = hours + ":" + minutes;
+
+    document.getElementById("date").innerHTML = curr_date;
+    document.getElementById("time").innerHTML = curr_time;
+    document.getElementById("fname").innerHTML = fname;
+    document.getElementById("lname").innerHTML = lname;
+    document.getElementById("phone").innerHTML = phone;
+
+    if(text_opt == 1){
+        document.getElementById("text_opt").innerHTML = "Yes";
+    }
+    else{
+        document.getElementById("text_opt").innerHTML = "No";
+    }
+}
+
 
 
 
@@ -636,4 +662,75 @@ function text_opt_in_format(){
     else{
         document.getElementById("text_opt_in").value = 0;
     }
+}
+
+function get_weekday(day){
+    var day_name = "";
+    switch(day) {
+        case 0:
+            day_name = "Sunday";
+            break;
+        case 1:
+            day_name = "Monday";
+            break;
+        case 2:
+            day_name = "Tuesday";
+            break;
+        case 3:
+            day_name = "Wednesday";
+            break;
+        case 4:
+            day_name = "Thursday";
+            break;
+        case 5:
+            day_name = "Friday";
+            break;
+        case 6:
+            day_name = "Saturday";
+            break;
+    }
+    return day_name;
+}
+
+function get_month(month){
+    var month_name = "";
+    switch(month) {
+        case 0:
+            month_name = "Jan";
+            break;
+        case 1:
+            month_name = "Feb";
+            break;
+        case 2:
+            month_name = "Mar";
+            break;
+        case 3:
+            month_name = "Apr";
+            break;
+        case 4:
+            month_name = "May";
+            break;
+        case 5:
+            month_name = "Jun";
+            break;
+        case 6:
+            month_name = "Jul";
+            break;
+        case 7:
+            month_name = "Aug";
+            break;
+        case 8:
+            month_name = "Sep";
+            break;
+        case 9:
+            month_name = "Oct";
+            break;
+        case 10:
+            month_name = "Nov";
+            break;
+        case 11:
+            month_name = "Dec";
+            break;
+    }
+    return month_name;
 }
