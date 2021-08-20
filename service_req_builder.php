@@ -7,7 +7,7 @@
         <title>Wheel Away</title>
         <!--LINK JQUERY-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="resStyle.css">
+        <link rel="stylesheet" href="style.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <!--<link rel="stylesheet" href="style.css">-->
         <script type="text/javascript" src="repairSked.js"></script>
@@ -23,7 +23,7 @@
         // Get the customer id passed from the previous page
         if($_GET){
             $cust_id = $_GET['cust_id'];
-            echo $_GET['cust_id']; // print_r($_GET);       
+            //echo $_GET['cust_id']; // print_r($_GET);       
         }
         else{
         echo "Url has no user";
@@ -64,7 +64,7 @@
         //echo $phone;
         //echo $text_opt;
     ?>
-    <div>
+    <div class="cust_info_display">
         <p>Date: </p>
         <p id="date"></P>
         <p>Time: </p>
@@ -75,7 +75,7 @@
         <p id="lname"></P>
         <p>Phone: </p>
         <p id="phone"></P>
-        <p>Receive Text Notifications: </p>
+        <p>Text Notifications: </p>
         <p id="text_opt"></P>
     </div>
     <script>
@@ -84,6 +84,81 @@
         var phone = "<?php echo $phone; ?>";
         var text_opt = "<?php echo $text_opt; ?>"; 
         fill_customer_info(fname, lname, phone, text_opt);
+    </script>
+
+    <div class="pri_repair_sel_box">
+        <div class="pri_repair_sel_box_buttons">
+            <button class="pri_service_btn" id="flat_rep_btn" onclick="toggle_flat_buttons()" >Flat Repair</button>
+            <div class="sec_repair_sel_box">
+                <button class="sec_service_btn" id="front_flat_btn">Front</button>
+                <button class="sec_service_btn" id="rear_flat_btn">Rear</button>
+                <button class="sec_service_btn" id="std_tube_btn">Standard</button>
+                <button class="sec_service_btn" id="hd_tube_btn">Heavy Duty</button>
+            </div>
+
+
+
+
+            <button class="pri_service_btn" id="tune_up_btn" onclick="toggle_tune_up_buttons()">Tune Up</button>
+            <div class="sec_tu_sel_box">
+                <button class="sec_service_btn" id="90_day_btn">90 Day</button>
+                <button class="sec_service_btn" id="geared_tu_btn">Geared</button>
+                <button class="sec_service_btn" id="sgl_spd_tu_btn">Single Spd</button>
+            </div>
+
+
+            <button class="pri_service_btn" id="brake_adj_btn" onclick="toggle_brake_adj_buttons()">Brake Adjust </button>
+            <div class="sec_repair_sel_box">
+                <button class="sec_service_btn" id="front_brake_btn">Front</button>
+                <button class="sec_service_btn" id="rear_brake_btn">Rear</button>
+            </div>
+            <button class="pri_service_btn" id="derailleur_adj_btn" onclick="toggle_der_adj_buttons()">Deraileur Adjust</button>
+            <div class="sec_repair_sel_box">
+                <button class="sec_service_btn" id="front_der_btn">Front</button>
+                <button class="sec_service_btn" id="rear_der_btn">Rear</button>
+            </div>
+            
+
+            <button class="pri_service_btn" id="new_tire_btn" onclick="toggle_new_tire_buttons()">New Tire</button>
+            <div class="sec_repair_sel_box">
+                <button class="sec_service_btn" id="front_tire_btn">Front</button>
+                <button class="sec_service_btn" id="rear_tire_btn">Rear</button>
+            </div>
+            <button class="pri_service_btn" id="tubeless_btn" onclick="toggle_tubeless_buttons()">Tubeless</button>
+            <div class="sec_repair_sel_box">
+                <button class="sec_service_btn" id="front_tubeless_btn">Front</button>
+                <button class="sec_service_btn" id="rear_tubeless_btn">Rear</button>
+            </div>
+            <button class="pri_service_btn" id="new_wheel_btn" onclick="toggle_new_wheel_buttons()">New Wheel</button>
+            <div class="sec_repair_sel_box">
+                <button class="sec_service_btn" id="front_wheel_btn">Front</button>
+                <button class="sec_service_btn" id="rear_wheel_btn">Rear</button>
+            </div>
+
+            <button class="pri_service_btn" id="assemble_bike_btn" >Assemble Bike</button>            
+            <button class="pri_service_btn" id="box_bike_btn" >Box Bike</button>
+            <button class="pri_service_btn" id="clean_bike_btn" >Clean Bike</button>
+            <button class="pri_service_btn" id="rep_drive_train_btn" >Replace Drive Train</button>
+            
+            <button class="pri_service_btn" id="update_firmware_btn" >Update Firmware</button>
+            <button class="pri_service_btn" id="other_service_btn" >Other Service</button>
+        </div>
+        <div class="pri_repair_sel_box_notes">
+            <h1>Scheduled Repairs</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Notes</h2>
+            <textarea class="notes_ta" id="repair_notes_ta">  Additional Notes...</textarea>
+        </div>
+    </div>
+    <script>
+        hide_repair_detail_options();
     </script>
 
 

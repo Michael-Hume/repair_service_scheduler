@@ -204,67 +204,107 @@ function display_res_modal(btn, res_modal){
 //document.getElementById('.flat_rep_btn').addEventListener('click', showBtn); 
 //document.getElementById("btn2").style.display = "none";
 
-function toggle_flat_checkboxes() { 
-    if((document.getElementById("front_flat_label").style.display) === 'block'){ 
-        document.getElementById("front_flat_label").style.display = 'none'; 
-        document.getElementById("front_flat_box").style.display = 'none'; 
-        document.getElementById("rear_flat_label").style.display = 'none'; 
-        document.getElementById("rear_flat_box").style.display = 'none'; 
+function toggle_flat_buttons() { 
+    if((document.getElementById("front_flat_btn").style.display) === 'block'){ 
+        document.getElementById("front_flat_btn").style.display = 'none'; 
+        document.getElementById("rear_flat_btn").style.display = 'none'; 
+        document.getElementById("std_tube_btn").style.display = 'none'; 
+        document.getElementById("hd_tube_btn").style.display = 'none'; 
         toggle_parts_req();
     }
     else{
-        document.getElementById("front_flat_label").style.display = 'block'; 
-        document.getElementById("front_flat_box").style.display = 'block'; 
-        document.getElementById("rear_flat_label").style.display = 'block'; 
-        document.getElementById("rear_flat_box").style.display = 'block'; 
+        document.getElementById("front_flat_btn").style.display = 'block'; 
+        document.getElementById("front_flat_btn").style.display = 'block'; 
+        document.getElementById("rear_flat_btn").style.display = 'block'; 
+        document.getElementById("std_tube_btn").style.display = 'block'; 
+        document.getElementById("hd_tube_btn").style.display = 'block'; 
         toggle_parts_req();
     }
 } 
 
 
-function toggle_brake_adj_FR_checkboxes() { 
-    if((document.getElementById("front_brake_adj_box").style.display) === 'block'){ 
-        document.getElementById("front_brake_adj_box").style.display = 'none'; 
-        document.getElementById("front_brake_adj_label").style.display = 'none'; 
-        document.getElementById("rear_brake_adj_box").style.display = 'none'; 
-        document.getElementById("rear_brake_adj_label").style.display = 'none'; 
+function toggle_brake_adj_buttons(){ 
+    if((document.getElementById("front_brake_btn").style.display) === 'block'){ 
+        document.getElementById("front_brake_btn").style.display = 'none'; 
+        document.getElementById("rear_brake_btn").style.display = 'none'; 
         toggle_parts_req();
     }
     else{
-        document.getElementById("front_brake_adj_box").style.display = 'block'; 
-        document.getElementById("front_brake_adj_label").style.display = 'block'; 
-        document.getElementById("rear_brake_adj_box").style.display = 'block'; 
-        document.getElementById("rear_brake_adj_label").style.display = 'block'; 
+        document.getElementById("front_brake_btn").style.display = 'block'; 
+        document.getElementById("front_brake_btn").style.display = 'block'; 
+        document.getElementById("rear_brake_btn").style.display = 'block'; 
         toggle_parts_req();
     }
 } 
 
-function toggle_derailleur_adj_FR_checkboxes() { 
-    if((document.getElementById("front_derailleur_adj_box").style.display) === 'block'){ 
-        document.getElementById("front_derailleur_adj_box").style.display = 'none'; 
-        document.getElementById("front_derailleur_adj_label").style.display = 'none'; 
-        document.getElementById("rear_derailleur_adj_box").style.display = 'none'; 
-        document.getElementById("rear_derailleur_adj_label").style.display = 'none'; 
+function toggle_new_tire_buttons(){ 
+    if((document.getElementById("front_tire_btn").style.display) === 'block'){ 
+        document.getElementById("front_tire_btn").style.display = 'none'; 
+        document.getElementById("rear_tire_btn").style.display = 'none'; 
         toggle_parts_req();
     }
     else{
-        document.getElementById("front_derailleur_adj_box").style.display = 'block'; 
-        document.getElementById("front_derailleur_adj_label").style.display = 'block'; 
-        document.getElementById("rear_derailleur_adj_box").style.display = 'block'; 
-        document.getElementById("rear_derailleur_adj_label").style.display = 'block'; 
+        document.getElementById("front_tire_btn").style.display = 'block'; 
+        document.getElementById("front_tire_btn").style.display = 'block'; 
+        document.getElementById("rear_tire_btn").style.display = 'block'; 
         toggle_parts_req();
     }
 } 
 
-function toggle_tune_up_dropdown() { 
-    if((document.getElementById("tune_up_dropdown").style.display) === 'block'){ 
-        document.getElementById("tune_up_dropdown_label").style.display = 'none'; 
-        document.getElementById("tune_up_dropdown").style.display = 'none'; 
+function toggle_new_wheel_buttons(){ 
+    if((document.getElementById("front_wheel_btn").style.display) === 'block'){ 
+        document.getElementById("front_wheel_btn").style.display = 'none'; 
+        document.getElementById("rear_wheel_btn").style.display = 'none'; 
         toggle_parts_req();
     }
     else{
-        document.getElementById("tune_up_dropdown_label").style.display = 'block'; 
-        document.getElementById("tune_up_dropdown").style.display = 'block'; 
+        document.getElementById("front_wheel_btn").style.display = 'block'; 
+        document.getElementById("front_wheel_btn").style.display = 'block'; 
+        document.getElementById("rear_wheel_btn").style.display = 'block'; 
+        toggle_parts_req();
+    }
+} 
+
+function toggle_tubeless_buttons(){ 
+    if((document.getElementById("front_tubeless_btn").style.display) === 'block'){ 
+        document.getElementById("front_tubeless_btn").style.display = 'none'; 
+        document.getElementById("rear_tubeless_btn").style.display = 'none'; 
+        toggle_parts_req();
+    }
+    else{
+        document.getElementById("front_tubeless_btn").style.display = 'block'; 
+        document.getElementById("front_tubeless_btn").style.display = 'block'; 
+        document.getElementById("rear_tubeless_btn").style.display = 'block'; 
+        toggle_parts_req();
+    }
+} 
+
+function toggle_der_adj_buttons(){ 
+    if((document.getElementById("front_der_btn").style.display) === 'block'){ 
+        document.getElementById("front_der_btn").style.display = 'none'; 
+        document.getElementById("rear_der_btn").style.display = 'none'; 
+        toggle_parts_req();
+    }
+    else{
+        document.getElementById("front_der_btn").style.display = 'block'; 
+        document.getElementById("front_der_btn").style.display = 'block'; 
+        document.getElementById("rear_der_btn").style.display = 'block'; 
+        toggle_parts_req();
+    }
+} 
+
+function toggle_tune_up_buttons() { 
+    if((document.getElementById("geared_tu_btn").style.display) === 'block'){ 
+        document.getElementById("geared_tu_btn").style.display = 'none'; 
+        document.getElementById("90_day_btn").style.display = 'none'; 
+        document.getElementById("sgl_spd_tu_btn").style.display = 'none'; 
+        toggle_parts_req();
+    }
+    else{
+        document.getElementById("geared_tu_btn").style.display = 'block'; 
+        document.getElementById("geared_tu_btn").style.display = 'block'; 
+        document.getElementById("90_day_btn").style.display = 'block'; 
+        document.getElementById("sgl_spd_tu_btn").style.display = 'block'; 
         toggle_parts_req();
     }
 } 
@@ -309,23 +349,32 @@ function add_parts(){
 
 function hide_repair_detail_options(){
     console.log("Hiding details...");
-    document.getElementById("front_flat_label").style.display = "none";
-    document.getElementById("front_flat_box").style.display = "none";
-    document.getElementById("rear_flat_label").style.display = "none";
-    document.getElementById("rear_flat_box").style.display = "none";
+    document.getElementById("front_flat_btn").style.display = "none";
+    document.getElementById("rear_flat_btn").style.display = "none";
+    document.getElementById("std_tube_btn").style.display = "none";
+    document.getElementById("hd_tube_btn").style.display = "none";
 
-    document.getElementById("front_brake_adj_box").style.display = "none";
-    document.getElementById("front_brake_adj_label").style.display = "none";
-    document.getElementById("rear_brake_adj_box").style.display = "none";
-    document.getElementById("rear_brake_adj_label").style.display = "none";
+    document.getElementById("front_brake_btn").style.display = "none";
+    document.getElementById("rear_brake_btn").style.display = "none";
 
-    document.getElementById("front_derailleur_adj_box").style.display = "none";
-    document.getElementById("front_derailleur_adj_label").style.display = "none";
-    document.getElementById("rear_derailleur_adj_box").style.display = "none";
-    document.getElementById("rear_derailleur_adj_label").style.display = "none";
+    document.getElementById("front_der_btn").style.display = "none";
+    document.getElementById("rear_der_btn").style.display = "none";
 
-    document.getElementById("tune_up_dropdown").style.display = "none";
-    document.getElementById("tune_up_dropdown_label").style.display = "none";
+    document.getElementById("front_tubeless_btn").style.display = "none";
+    document.getElementById("rear_tubeless_btn").style.display = "none";
+
+    document.getElementById("front_wheel_btn").style.display = "none";
+    document.getElementById("rear_wheel_btn").style.display = "none";
+
+    document.getElementById("front_tire_btn").style.display = "none";
+    document.getElementById("rear_tire_btn").style.display = "none";
+
+    document.getElementById("geared_tu_btn").style.display = "none";
+    document.getElementById("90_day_btn").style.display = "none";
+    document.getElementById("sgl_spd_tu_btn").style.display = "none";
+    
+    
+    
 
     document.getElementById("parts_req_button").style.display = "none";
 

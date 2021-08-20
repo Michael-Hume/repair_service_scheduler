@@ -1,149 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+html * {
+    color: rgb(46, 46, 46);
+    font-family: Rajdhani-Medium;
+  }
 
-*, body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
+.cust_info_display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 300px;
+    border: 8px solid rgb(61, 61, 61);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    line-height: 0.5px;
+    font-size: 16px;
 }
 
-html, body {
-    height: 100%;
-    background-color: #383838;
-    overflow: visible;
+.pri_repair_sel_box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 700px;
+    border: 2px solid rgb(61, 61, 61);
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+
+    line-height: 2px;
+    font-size: 20px;
 }
 
-
-.form-holder {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
+.pri_repair_sel_box .pri_repair_sel_box_buttons{
+    grid-template-columns: 1fr;
+    width:225px;
+}
+.sec_repair_sel_box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 200px;
+    padding: 5px;
+    line-height: 0.5px;
 }
 
-
-.form-holder .form-content {
-    position: relative;
-    text-align: center;
-    /*display: -webkit-box;*/
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    /*-webkit-justify-content: center;*/
-    justify-content: center;
-    /*-webkit-align-items: center;*/
-    align-items: center;
-    padding: 40px;
+.sec_tu_sel_box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 200px;
+    padding: 5px;
+    line-height: 0.5px;
 }
 
-.form-content .form-items {
-    border: 3px solid #fff;
-    padding: 60px;
-    display: inline-block;
-    width: 40%;
-    min-width: 100px;
-    /*-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;*/
-    border-radius: 40px;
-    text-align: center;
-    /*-webkit-transition: all 0.4s ease;*/
-    transition: all 0.4s ease;
+.pri_service_btn{
+    width: 200px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 3px;
+    font-size: 22px;
+    font-family: Rajdhani-SemiBold;
+    background-color: rgb(182, 182, 182);
 }
 
-.form-content h3 {
-    color: #fff;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.form-content h3.form-title {
-    margin-bottom: 30px;
-}
-
-/* Sub Heading */
-.form-content p {
-    color: #fff;
-    text-align: left;
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 20px;
-    margin-bottom: 30px;
-}
-
-
-.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content input[type=tel], .form-content select, .form-control {
-    /*width: auto;*/
-    width: 90%;
-    padding: 8px 20px;
-    text-align: left;
-    border: 0;
-    outline: 0;
-    border-radius: 6px;
-    background-color: #fff;
-    font-size: 15px;
-    font-weight: 300;
-    color: #8D8D8D;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    margin-top: 16px;
-}
-
-
-.btn-primary{
-    background-color: #6C757D;
-    outline: none;
-    border: 0px;
-     box-shadow: none;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
-    background-color: #495056;
-    outline: none !important;
-    border: none !important;
-     box-shadow: none;
-}
-
-.form-content textarea {
-    position: static !important;
-    width: 100%;
-    padding: 8px 20px;
-    border-radius: 6px;
-    text-align: left;
+.pri_service_btn:hover{
     background-color: rgb(255, 255, 255);
-    border: 0;
-    font-size: 15px;
-    font-weight: 300;
-    color: #8D8D8D;
-    outline: none;
-    resize: none;
-    height: 120px;
-    -webkit-transition: none;
-    transition: none;
-    margin-bottom: 14px;
 }
 
-.form-content textarea:hover, .form-content textarea:focus {
-    border: 0;
-    background-color: #ebeff8;
-    color: #8D8D8D;
+.pri_service_btn:focus{
+    background-color: rgb(61, 61, 61);
+    color: rgb(255, 255, 255);
 }
 
-.mv-up{
-    margin-top: -9px !important;
-    margin-bottom: 8px !important;
+.sec_service_btn:hover{
+    background-color: rgb(255, 255, 255);
 }
 
-.invalid-feedback{
-    color: #ff606e;
+.sec_service_btn:focus{
+    background-color: rgb(61, 61, 61);
+    color: rgb(255, 255, 255);
 }
 
-.valid-feedback{
-   color: #2acc80;
+.sec_service_btn{
+    width: 97.5px;
+    height: 25px;
+    margin: 2px;
+    font-size: 16px;
+    font-family: Rajdhani-Bold;
+    background-color: rgb(182, 182, 182);
+    border-radius: 3px;
 }
 
+.sec_tu_sel_box .sec_service_btn{
+    font-size: 11px;
+    font-family: Rajdhani-SemiBold;
+    width: 64px;
+}
+
+.notes_ta{
+    width: 400px;
+    height:100px;
+    border: 0.5px solid rgb(61, 61, 61);
+    border-radius: 1px;
+    font-size: 16px;
+}
