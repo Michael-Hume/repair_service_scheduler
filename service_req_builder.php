@@ -7,8 +7,9 @@
         <title>Wheel Away</title>
         <!--LINK JQUERY-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="style.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="style.css">
         <!--<link rel="stylesheet" href="style.css">-->
         <script type="text/javascript" src="repairSked.js"></script>
     </head>
@@ -26,7 +27,7 @@
             //echo $_GET['cust_id']; // print_r($_GET);       
         }
         else{
-        echo "Url has no user";
+            echo "Url has no user";
         }
 
         // Connect to db
@@ -90,10 +91,10 @@
         <div class="pri_repair_sel_box_buttons">
             <button class="pri_service_btn" id="flat_rep_btn" onclick="toggle_flat_buttons()" >Flat Repair</button>
             <div class="sec_repair_sel_box">
-                <button class="sec_service_btn" id="front_flat_btn">Front</button>
-                <button class="sec_service_btn" id="rear_flat_btn">Rear</button>
-                <button class="sec_service_btn" id="std_tube_btn">Standard</button>
-                <button class="sec_service_btn" id="hd_tube_btn">Heavy Duty</button>
+                <button class="sec_service_btn" id="front_flat_btn" data-btn_selected='false' onclick='enable_tube_type_buttons()'>Front</button>
+                <button class="sec_service_btn" id="rear_flat_btn" data-btn_selected="false">Rear</button>
+                <button class="sec_service_btn" id="std_tube_btn" data-btn_selected="false">Standard</button>
+                <button class="sec_service_btn" id="hd_tube_btn" data-btn_selected="false">Heavy Duty</button>
             </div>
 
 
@@ -145,6 +146,12 @@
         </div>
         <div class="pri_repair_sel_box_notes">
             <h1>Scheduled Repairs</h1>
+            <div class="sked_repairs_list">
+                <ul id="services_list">
+
+                </ul>
+
+            </div>
             <br>
             <br>
             <br>

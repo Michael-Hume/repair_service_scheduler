@@ -28,6 +28,84 @@ $(document).ready(function() {
 });
 */
 
+class Repair{
+    cust_id = 0; 
+    drop_date;
+    drop_time;
+    service_date;
+    pickup_date;
+    parts_list;
+
+    constructor(cust_id, curr_date, time){
+        this.cust_id = cust_id;
+        this.drop_date = curr_date;
+        this.drop_time = curr_time;
+    }
+};
+
+class Customer{
+    cust_id;
+    firstname;
+    lastname;
+    phone;
+    text_opt;
+    email;
+    bicycles;
+
+    constructor(cust_id, firstname, lastname, phone, text_opt){
+        this.cust_id = cust_id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+        this.text_opt = text_opt;
+    }
+}
+
+class Bicycle{
+    brand;
+    model;
+    bike_id;
+    cat_id;
+    level_id;
+    name;
+    part_num;
+    price;
+    pri_color_id;
+    sec_color_id;
+    tert_color_id;
+    quart_color_id;
+    size_id;
+    SKU;
+    tert_color_id;
+    wheel_size_id;
+    year;
+    /*
+    constructor(brand, model, color){
+        this.brand = brand;
+        this.model = model;
+        this.color = color;
+    }
+    */
+    constructor(bike_id, cat_id, level_id, name, part_num, price, pri_color_id, sec_color_id, tert_color_id, quart_color_id, size_id, SKU, wheel_size_id, year){
+        this.brand = "Specialized";
+        this.bike_id = bike_id;
+        this.cat_id = cat_id;
+        this.level_id = level_id;
+        this.name = name;
+        this.part_num = part_num;
+        this.price = price;
+        this.pri_color_id = pri_color_id;
+        this.sec_color_id = sec_color_id;
+        this.tert_color_id = tert_color_id;
+        this.quart_color_id = quart_color_id;
+        this.size_id = size_id;
+        this.SKU = SKU;
+        this.wheel_size_id = wheel_size_id;
+        this.year = year;
+    }
+}
+
+
 function time_unit_builder(){
     console.log("Running time_unit_builder...");
     var daily_units = [];
@@ -210,7 +288,7 @@ function toggle_flat_buttons() {
         document.getElementById("rear_flat_btn").style.display = 'none'; 
         document.getElementById("std_tube_btn").style.display = 'none'; 
         document.getElementById("hd_tube_btn").style.display = 'none'; 
-        toggle_parts_req();
+        //toggle_parts_req();
     }
     else{
         document.getElementById("front_flat_btn").style.display = 'block'; 
@@ -310,6 +388,7 @@ function toggle_tune_up_buttons() {
 } 
 
 function toggle_parts_req(){
+    /*
     var tune_up_vis = document.getElementById("tune_up_dropdown").style.display;
     var brake_adj_vis = document.getElementById("front_brake_adj_box").style.display;
     var derailleur_adj_vis = document.getElementById("front_derailleur_adj_box").style.display;
@@ -327,6 +406,7 @@ function toggle_parts_req(){
         document.getElementById("parts_req_button").style.display = 'none';
         hide_parts_list();
     }
+    */
 } 
 
 function toggle_parts_req_textarea(){
@@ -372,13 +452,16 @@ function hide_repair_detail_options(){
     document.getElementById("geared_tu_btn").style.display = "none";
     document.getElementById("90_day_btn").style.display = "none";
     document.getElementById("sgl_spd_tu_btn").style.display = "none";
+
+    document.getElementById("std_tube_btn").disabled = 'true'; 
+    document.getElementById("hd_tube_btn").disabled = 'true'; 
     
     
     
 
-    document.getElementById("parts_req_button").style.display = "none";
+    //document.getElementById("parts_req_button").style.display = "none";
 
-    hide_parts_list();
+    //hide_parts_list();
     
 }
 
@@ -413,6 +496,24 @@ function clear_parts_list(){
 
 function add_to_parts_list(){
     var ul = document.getElementById('parts_list');
+    var li = document.createElement('li');
+    var new_part = document.getElementById('part_input').value;
+    var parts_count = 0;
+
+    //Count the number of parts currently in the list
+    while(ul.getElementsByTagName('li') [parts_count++]); 
+
+    // Add new part to the list
+    li.appendChild(document.createTextNode(new_part));
+    li.setAttribute("part_req_id", ("part_" + (parts_count)));
+    ul.appendChild(li);
+    document.getElementById("remove_last_part_btn").style.display = 'block';
+
+    console.log("Adding - " + new_part + " - part num:" + parts_count);
+}
+
+function add_to_services_list(){
+    var ul = document.getElementById('services_list');
     var li = document.createElement('li');
     var new_part = document.getElementById('part_input').value;
     var parts_count = 0;
@@ -656,6 +757,7 @@ function book_suggestion(){
 
 
 function fill_customer_info(fname, lname, phone, text_opt){
+    //TODO: adjust minutes to display 9:05 instead of 9:5
     const d = new Date();
     var year = d.getFullYear();
     var month = get_month(d.getMonth());
@@ -681,6 +783,52 @@ function fill_customer_info(fname, lname, phone, text_opt){
     }
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+//                                                      R E P A I R     F U N C T I O N S 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                  A D D     F L A T     R E P A I R
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function add_flat_repair(){
+    if((document.getElementById("geared_tu_btn").style.display) === 'block'){ 
+        document.getElementById("geared_tu_btn").style.display = 'none'; 
+        document.getElementById("90_day_btn").style.display = 'none'; 
+        document.getElementById("sgl_spd_tu_btn").style.display = 'none'; 
+        toggle_parts_req();
+    }
+    else{
+        document.getElementById("geared_tu_btn").style.display = 'block'; 
+        document.getElementById("geared_tu_btn").style.display = 'block'; 
+        document.getElementById("90_day_btn").style.display = 'block'; 
+        toggle_parts_req();
+    }
+}
+
+
+
+
+
+function enable_tube_type_buttons(){
+    //if((document.getElementById("front_flat_btn").data-btn_selected) === "false"){ 
+    if($('#front_flat_btn').data('btn_selected') == false){
+        console.log("front flat button selected...");
+        $('#front_flat_btn').data('btn_selected', true);
+        document.getElementById("std_tube_btn").disabled = false; 
+        document.getElementById("hd_tube_btn").disabled = 'false'; 
+        //toggle_parts_req();
+    }
+    else{
+        console.log("front flat button deselected...");
+        console.log($('#front_flat_btn').data('btn_selected'));
+        $('#front_flat_btn').data('btn_selected', false);
+        document.getElementById("std_tube_btn").disabled = true; 
+        document.getElementById("hd_tube_btn").disabled = true; 
+        //toggle_parts_req();
+    }
+}
 
 
 
