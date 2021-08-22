@@ -811,24 +811,126 @@ function add_flat_repair(){
 
 
 
-function enable_tube_type_buttons(){
-    //if((document.getElementById("front_flat_btn").data-btn_selected) === "false"){ 
-    if($('#front_flat_btn').data('btn_selected') == false){
-        console.log("front flat button selected...");
-        $('#front_flat_btn').data('btn_selected', true);
-        document.getElementById("std_tube_btn").disabled = false; 
-        document.getElementById("hd_tube_btn").disabled = 'false'; 
+
+
+
+function tester(parent_div, calling_button_id){
+
+    // Get the list of all buttons under the parent div
+    var all_buttons =  Array.prototype.slice.call(parent_div.querySelectorAll('button'));
+    // Get the sub div 
+    var child_div = Array.prototype.slice.call(parent_div.querySelectorAll('div'));
+    // Get the buttons of the sub div
+    var child_buttons = Array.prototype.slice.call(child_div[0].querySelectorAll('button'));
+    // Get the buttons of JUST the parent div
+    var parent_buttons = all_buttons.filter(function(obj) { return child_buttons.indexOf(obj) == -1; });
+
+
+    // Get the index of the calling button within the parent buttons
+    var calling_button_idx;
+    for (var i=0, len=parent_buttons.length; i<len; i++) {
+        console.log(parent_buttons[i].id);
+        if(parent_buttons[i].id == calling_button_id){
+            calling_button_idx = i;
+        }
+    }
+
+    // Set the calling button to 'selected' if it was previously 'unselected'
+        // Enable the child buttons
+    if($('#'+calling_button_id).data('btn_selected') == false){
+        $('#'+calling_button_id).data('btn_selected', true);
+        document.getElementById(calling_button_id).style.background = '#365E27';
+        document.getElementById(calling_button_id).style.color = '#FFFFFF';
+        for (var j=0, len=child_buttons.length; j<len; j++) {
+            document.getElementById(child_buttons[j].id).disabled = false; 
+            document.getElementById(child_buttons[j].id).disabled = false; 
+        }
         //toggle_parts_req();
     }
-    else{
-        console.log("front flat button deselected...");
-        console.log($('#front_flat_btn').data('btn_selected'));
-        $('#front_flat_btn').data('btn_selected', false);
-        document.getElementById("std_tube_btn").disabled = true; 
-        document.getElementById("hd_tube_btn").disabled = true; 
+
+    // Set the calling button to 'unselected' if it was previously 'selected'
+        // Disable the child buttons
+        // Check if any other sibling buttons to the calling button are selected 
+            // If so, re-enable the child buttons
+    else if($('#'+calling_button_id).data('btn_selected') == true){
+        $('#'+calling_button_id).data('btn_selected', false);
+        document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
+        document.getElementById(calling_button_id).style.color = '#2E2E2E';  // Make text Dark Grey
+        for (var j=0, len=child_buttons.length; j<len; j++) {
+            disable_button(child_buttons[j].id); // Disable the child buttons
+        }
+        
+        for (var i=0, len=parent_buttons.length; i<len; i++) {
+            if($('#'+parent_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
+                for (var j=0, len=child_buttons.length; j<len; j++) {
+                    enable_button(child_buttons[j].id); // Re-Enable each child
+                    if($('#'+calling_button_id).data('btn_selected') == true){
+                        select_button(calling_button_id);
+                    }
+                }
+            }
+        }
         //toggle_parts_req();
     }
 }
+
+function toggle_button_selected(calling_button_id){
+    if($('#'+calling_button_id).data('btn_selected') == false){
+        select_button(calling_button_id);
+    }
+    else{
+        deselect_button(calling_button_id);
+    }
+}
+
+function disable_button(calling_button_id){
+    document.getElementById(calling_button_id).disabled = true;
+    deselect_button(calling_button_id);
+}
+
+function enable_button(calling_button_id){
+    document.getElementById(calling_button_id).disabled = false;
+}
+
+function select_button(calling_button_id){
+    $('#'+calling_button_id).data('btn_selected', true);
+    document.getElementById(calling_button_id).style.background = '#365E27'; // Make BG Green
+    document.getElementById(calling_button_id).style.color = '#FFFFFF';// Make text White
+}
+
+function deselect_button(calling_button_id){
+    document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
+    document.getElementById(calling_button_id).style.color = '#2E2E2E'; // Make text Dark Grey
+}
+
+
+
+
+
+
+/*
+function toggle_button_selected(calling_button_id){
+    console.log('RUNNING: toggle_button_selected FROM -> ' +calling_button_id);
+    if(document.getElementById(calling_button_id).disabled == true){
+        document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
+        document.getElementById(calling_button_id).style.color = '#2E2E2E'; // Make text Dark Grey
+        console.log('BR-1');
+    }
+    else if($('#'+calling_button_id).data('btn_selected') == false){
+        $('#'+calling_button_id).data('btn_selected', true);
+        document.getElementById(calling_button_id).style.background = '#365E27'; // Make BG Green
+        document.getElementById(calling_button_id).style.color = '#FFFFFF';// Make text White
+        console.log('BR-2');
+    }
+    else if({
+        $('#'+calling_button_id).data('btn_selected', false);
+        document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
+        document.getElementById(calling_button_id).style.color = '#2E2E2E'; // Make text Dark Grey
+        console.log('BR-3');
+    }
+}
+*/
+
 
 
 

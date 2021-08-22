@@ -90,11 +90,13 @@
     <div class="pri_repair_sel_box">
         <div class="pri_repair_sel_box_buttons">
             <button class="pri_service_btn" id="flat_rep_btn" onclick="toggle_flat_buttons()" >Flat Repair</button>
-            <div class="sec_repair_sel_box">
-                <button class="sec_service_btn" id="front_flat_btn" data-btn_selected='false' onclick='enable_tube_type_buttons()'>Front</button>
-                <button class="sec_service_btn" id="rear_flat_btn" data-btn_selected="false">Rear</button>
-                <button class="sec_service_btn" id="std_tube_btn" data-btn_selected="false">Standard</button>
-                <button class="sec_service_btn" id="hd_tube_btn" data-btn_selected="false">Heavy Duty</button>
+            <div class="sec_repair_sel_box" id ='flat_sel_div'>
+                <button class="sec_service_btn" id="front_flat_btn" data-btn_selected='false' onclick='tester(flat_sel_div, "front_flat_btn")'>Front</button>
+                <button class="sec_service_btn" id="rear_flat_btn" data-btn_selected="false" onclick='tester(flat_sel_div, "rear_flat_btn")'>Rear</button>
+                <div class="tert_repair_sel_box" id='tube_sel_div'>
+                    <button class="sec_service_btn" id="std_tube_btn" data-btn_selected="false" onclick='toggle_button_selected("std_tube_btn")'>Standard</button>
+                    <button class="sec_service_btn" id="hd_tube_btn" data-btn_selected="false" onclick='toggle_button_selected("hd_tube_btn")'>Heavy Duty</button>
+                </div>
             </div>
 
 

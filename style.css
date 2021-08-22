@@ -1,7 +1,13 @@
 html * {
     color: rgb(46, 46, 46);
     font-family: Rajdhani-Medium;
-  }
+}
+
+button[disabled] {
+    opacity: 0.6;
+    pointer-events: none;
+
+}
 
 .cust_info_display {
     display: grid;
@@ -32,6 +38,26 @@ html * {
     grid-template-columns: 1fr;
     width:225px;
 }
+
+.pri_service_btn{
+    width: 200px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 3px;
+    font-size: 22px;
+    font-family: Rajdhani-SemiBold;
+    background-color: rgb(230, 230, 230);
+}
+
+.pri_service_btn:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.pri_service_btn:focus{
+    background-color: rgb(61, 61, 61);
+    color: rgb(255, 255, 255);
+}
+
 .sec_repair_sel_box{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -46,25 +72,6 @@ html * {
     width: 200px;
     padding: 5px;
     line-height: 0.5px;
-}
-
-.pri_service_btn{
-    width: 200px;
-    height: 50px;
-    margin: 5px;
-    border-radius: 3px;
-    font-size: 22px;
-    font-family: Rajdhani-SemiBold;
-    background-color: rgb(182, 182, 182);
-}
-
-.pri_service_btn:hover{
-    background-color: rgb(255, 255, 255);
-}
-
-.pri_service_btn:focus{
-    background-color: rgb(61, 61, 61);
-    color: rgb(255, 255, 255);
 }
 
 .sec_service_btn:hover{
@@ -82,13 +89,8 @@ html * {
     margin: 2px;
     font-size: 16px;
     font-family: Rajdhani-SemiBold;
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(230, 230, 230);
     border-radius: 3px;
-}
-button[disabled] {
-    opacity: 0.6;
-    pointer-events: none;
-
 }
 
 .sec_tu_sel_box .sec_service_btn{
@@ -96,6 +98,13 @@ button[disabled] {
     font-family: Rajdhani-SemiBold;
     width: 64px;
 }
+
+.tert_repair_sel_box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100px;
+    line-height: 0.5px;
+} 
 
 .notes_ta{
     width: 350px;
