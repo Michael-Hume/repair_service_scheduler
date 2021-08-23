@@ -91,11 +91,11 @@
         <div class="pri_repair_sel_box_buttons">
             <button class="pri_service_btn" id="flat_rep_btn" onclick="toggle_flat_buttons()" >Flat Repair</button>
             <div class="sec_repair_sel_box" id ='flat_sel_div'>
-                <button class="sec_service_btn" id="front_flat_btn" data-btn_selected='false' onclick='tester(flat_sel_div, "front_flat_btn")'>Front</button>
-                <button class="sec_service_btn" id="rear_flat_btn" data-btn_selected="false" onclick='tester(flat_sel_div, "rear_flat_btn")'>Rear</button>
+                <button class="sec_service_btn" id="front_flat_btn" data-btn_selected='false' value="FRONT" onclick='toggle_secondary_button(flat_sel_div, "front_flat_btn", "flat_services_list", "Flat Repair")'>Front</button>
+                <button class="sec_service_btn" id="rear_flat_btn" data-btn_selected="false" value="REAR" onclick='toggle_secondary_button(flat_sel_div, "rear_flat_btn", "flat_services_list", "Flat Repair")'>Rear</button>
                 <div class="tert_repair_sel_box" id='tube_sel_div'>
-                    <button class="sec_service_btn" id="std_tube_btn" data-btn_selected="false" onclick='toggle_button_selected("std_tube_btn")'>Standard</button>
-                    <button class="sec_service_btn" id="hd_tube_btn" data-btn_selected="false" onclick='toggle_button_selected("hd_tube_btn")'>Heavy Duty</button>
+                    <button class="sec_service_btn" id="std_tube_btn" data-btn_selected="false" value="STD" onclick='toggle_tertiary_button("Flat Repair", "flat_services_list", flat_sel_div, tube_sel_div, "std_tube_btn")'>Standard</button>
+                    <button class="sec_service_btn" id="hd_tube_btn" data-btn_selected="false" value="HD" onclick='toggle_tertiary_button("Flat Repair", "flat_services_list", flat_sel_div, tube_sel_div, "hd_tube_btn")'>Heavy Duty</button>
                 </div>
             </div>
 
@@ -103,10 +103,10 @@
 
 
             <button class="pri_service_btn" id="tune_up_btn" onclick="toggle_tune_up_buttons()">Tune Up</button>
-            <div class="sec_tu_sel_box">
-                <button class="sec_service_btn" id="90_day_btn">90 Day</button>
-                <button class="sec_service_btn" id="geared_tu_btn">Geared</button>
-                <button class="sec_service_btn" id="sgl_spd_tu_btn">Single Spd</button>
+            <div class="sec_tu_sel_box" id ='tu_sel_div'>
+                <button class="sec_service_btn" id="90_day_btn" data-btn_selected='false' value="90 Day" onclick='toggle_secondary_button(tu_sel_div, "90_day_btn", "tu_services_list", "TUNE-UP")'>90 Day</button>
+                <button class="sec_service_btn" id="geared_tu_btn" data-btn_selected='false' value="Standard" onclick='toggle_secondary_button(tu_sel_div, "geared_tu_btn", "tu_services_list", "TUNE-UP")'>Geared</button>
+                <button class="sec_service_btn" id="sgl_spd_tu_btn" data-btn_selected='false' value="Single Speed" onclick='toggle_secondary_button(tu_sel_div, "sgl_spd_tu_btn", "tu_services_list", "TUNE-UP")'>Single Spd</button>
             </div>
 
 
@@ -149,9 +149,20 @@
         <div class="pri_repair_sel_box_notes">
             <h1>Scheduled Repairs</h1>
             <div class="sked_repairs_list">
-                <ul id="services_list">
+                <ul id="tu_services_list">
 
                 </ul>
+                <ul id="der_services_list">
+
+                </ul>
+                <ul id="brake_services_list">
+
+                </ul>
+                <ul id="flat_services_list">
+
+                </ul>
+
+
 
             </div>
             <br>

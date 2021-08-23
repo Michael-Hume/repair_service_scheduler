@@ -39,6 +39,11 @@ button[disabled] {
     width:225px;
 }
 
+.pri_repair_sel_box .pri_repair_sel_box_notes{
+    grid-template-columns: 1fr;
+    line-height: 18px;
+}
+
 .pri_service_btn{
     width: 200px;
     height: 50px;

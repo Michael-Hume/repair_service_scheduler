@@ -105,7 +105,6 @@ class Bicycle{
     }
 }
 
-
 function time_unit_builder(){
     console.log("Running time_unit_builder...");
     var daily_units = [];
@@ -122,10 +121,6 @@ function time_unit_builder(){
     };
     return daily_units;
 };
-
-
-
-
 
 function proto_sked_builder(day_col, modal){
     daily_tune_ups = 4;
@@ -205,8 +200,6 @@ function proto_sked_builder(day_col, modal){
     }
 }
 
-
-
 function sked_builder(m1, m2, m3){
     appt_units = [];
 
@@ -235,15 +228,6 @@ function sked_builder(m1, m2, m3){
     button.className = 'appt_button';
 
 };
-
-
-
-
-
-
-
-
-
 
 function populate_unit_button(time_str, day_col, modal){
     console.log("Running populate_unit_button...");
@@ -426,7 +410,6 @@ function add_parts(){
     }
 }
 
-
 function hide_repair_detail_options(){
     console.log("Hiding details...");
     document.getElementById("front_flat_btn").style.display = "none";
@@ -456,44 +439,15 @@ function hide_repair_detail_options(){
     document.getElementById("std_tube_btn").disabled = 'true'; 
     document.getElementById("hd_tube_btn").disabled = 'true'; 
     
-    
-    
-
     //document.getElementById("parts_req_button").style.display = "none";
 
     //hide_parts_list();
     
 }
 
-function hide_parts_list(){
-    document.getElementById("part_input").style.display = 'none';
-    document.getElementById("part_input").value = ''; 
-    document.getElementById("add_more_parts_btn").style.display = 'none'; 
-    document.getElementById("remove_last_part_btn").style.display = 'none';
-}
-
-function remove_last_part(){
-    let parts_list = document.getElementById('parts_list');
-    parts_list.removeChild(parts_list.lastElementChild);
-
-    var ul = document.getElementById('parts_list');
-    var li = document.createElement('li');
-    var parts_count = 0;
-    while(ul.getElementsByTagName('li') [parts_count++]); 
-
-    console.log("PARTS COUNT: " + parts_count);
-
-    if(parts_count<2){
-        document.getElementById("remove_last_part_btn").style.display = 'none';
-    }
-}
-
-
-function clear_parts_list(){
-    document.getElementById("part_input").value = ''; 
-
-}
-
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                  A D D S     T O     P A R T S     L I S T 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function add_to_parts_list(){
     var ul = document.getElementById('parts_list');
     var li = document.createElement('li');
@@ -512,6 +466,46 @@ function add_to_parts_list(){
     console.log("Adding - " + new_part + " - part num:" + parts_count);
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                  R E M O V E     L A S T     P A R T
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function remove_last_part(){
+    let parts_list = document.getElementById('parts_list');
+    parts_list.removeChild(parts_list.lastElementChild);
+
+    var ul = document.getElementById('parts_list');
+    var li = document.createElement('li');
+    var parts_count = 0;
+    while(ul.getElementsByTagName('li') [parts_count++]); 
+
+    console.log("PARTS COUNT: " + parts_count);
+
+    if(parts_count<2){
+        document.getElementById("remove_last_part_btn").style.display = 'none';
+    }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                  H I D E     P A R T S     L I S T 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function hide_parts_list(){
+    document.getElementById("part_input").style.display = 'none';
+    document.getElementById("part_input").value = ''; 
+    document.getElementById("add_more_parts_btn").style.display = 'none'; 
+    document.getElementById("remove_last_part_btn").style.display = 'none';
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                      C L E A R     P A R T S     L I S T 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function clear_parts_list(){
+    document.getElementById("part_input").value = ''; 
+
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                              A D D S     T O     S E R V I C E S     L I S T 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function add_to_services_list(){
     var ul = document.getElementById('services_list');
     var li = document.createElement('li');
@@ -537,12 +531,8 @@ function add_to_services_list(){
 function register_customer(phone_input){
     document.getElementById("phone_input").setCustomValidity("Phone number is not valid.");
     console.log("User Entered: " + phone_input);
-
     var phone_rvcd = scrub_phone_number(phone_input);
-    
     if(phone_rvcd != "invalid"){
-
-
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             // Process our return data
@@ -686,14 +676,6 @@ function populate_customer_info() {
     }   
 }
 
-
-
-
-
-
-
-
-
 /*
 // handles the click event for link 1, sends the query
 function getOutput() {
@@ -807,142 +789,248 @@ function add_flat_repair(){
     }
 }
 
-
-
-
-
-
-
-
-function tester(parent_div, calling_button_id){
-
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                          T O G G L E    S E C O N D A R Y    B U T T O N S
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function toggle_secondary_button(parent_div, calling_button_id, service_list, primary_service_message){
     // Get the list of all buttons under the parent div
     var all_buttons =  Array.prototype.slice.call(parent_div.querySelectorAll('button'));
     // Get the sub div 
     var child_div = Array.prototype.slice.call(parent_div.querySelectorAll('div'));
-    // Get the buttons of the sub div
-    var child_buttons = Array.prototype.slice.call(child_div[0].querySelectorAll('button'));
-    // Get the buttons of JUST the parent div
-    var parent_buttons = all_buttons.filter(function(obj) { return child_buttons.indexOf(obj) == -1; });
-
-
-    // Get the index of the calling button within the parent buttons
-    var calling_button_idx;
-    for (var i=0, len=parent_buttons.length; i<len; i++) {
-        console.log(parent_buttons[i].id);
-        if(parent_buttons[i].id == calling_button_id){
-            calling_button_idx = i;
-        }
+    var contains_child_buttons = false;
+    if(child_div.length > 0){
+        contains_child_buttons = true;
+    }
+    if(contains_child_buttons){
+        // Get the buttons of the sub div
+        var child_buttons = Array.prototype.slice.call(child_div[0].querySelectorAll('button'));
+        // Get the buttons of JUST the parent div
+        var parent_buttons = all_buttons.filter(function(obj) { return child_buttons.indexOf(obj) == -1; });
     }
 
-    // Set the calling button to 'selected' if it was previously 'unselected'
-        // Enable the child buttons
+    // TURN ON
     if($('#'+calling_button_id).data('btn_selected') == false){
-        $('#'+calling_button_id).data('btn_selected', true);
-        document.getElementById(calling_button_id).style.background = '#365E27';
-        document.getElementById(calling_button_id).style.color = '#FFFFFF';
-        for (var j=0, len=child_buttons.length; j<len; j++) {
-            document.getElementById(child_buttons[j].id).disabled = false; 
-            document.getElementById(child_buttons[j].id).disabled = false; 
-        }
-        //toggle_parts_req();
-    }
-
-    // Set the calling button to 'unselected' if it was previously 'selected'
-        // Disable the child buttons
-        // Check if any other sibling buttons to the calling button are selected 
-            // If so, re-enable the child buttons
-    else if($('#'+calling_button_id).data('btn_selected') == true){
-        $('#'+calling_button_id).data('btn_selected', false);
-        document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
-        document.getElementById(calling_button_id).style.color = '#2E2E2E';  // Make text Dark Grey
-        for (var j=0, len=child_buttons.length; j<len; j++) {
-            disable_button(child_buttons[j].id); // Disable the child buttons
-        }
-        
-        for (var i=0, len=parent_buttons.length; i<len; i++) {
-            if($('#'+parent_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
-                for (var j=0, len=child_buttons.length; j<len; j++) {
+        if(contains_child_buttons){
+            select_button(calling_button_id);
+            console.log(calling_button_id + " set to SELECTED.");
+            // Survey child buttons to check if they are enabled
+            for (var j=0, len=child_buttons.length; j<len; j++) {
+                if(check_enable_status(child_buttons[j].id)){
+                    refresh_service_sked(primary_service_message, service_list, parent_div, parent_div.querySelectorAll('div')[0], child_buttons[j].id)
+                }
+                else{
                     enable_button(child_buttons[j].id); // Re-Enable each child
-                    if($('#'+calling_button_id).data('btn_selected') == true){
-                        select_button(calling_button_id);
-                    }
+                    console.log(child_buttons[j].id + " enabled.");
                 }
             }
         }
-        //toggle_parts_req();
+        else{
+            for (var i=0, len=all_buttons.length; i<len; i++) {
+                deselect_button(all_buttons[i].id);
+                console.log(all_buttons[i].id + " deselected.");
+            }
+            select_button(calling_button_id);
+            console.log(calling_button_id + " set to SELECTED.");
+            build_service_message(primary_service_message, calling_button_id, service_list);
+        }
+    }
+
+    //TURN OFF
+    else{
+        deselect_button(calling_button_id);
+        console.log(calling_button_id + " set to DESELECTED.");
+        if(contains_child_buttons){
+            // At least one parent button is known to be false (not selected), so start with false.
+            var parent_selected = false;
+            // Survey each sibling (parent) button to check if any are selected, if so it will flip 'parent_selectd' to true.
+            for (var i=0, len=parent_buttons.length; i<len; i++) {
+                if($('#'+parent_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
+                    parent_selected = true;
+                    console.log("'parent_select' flipped to true.");
+                }
+            }
+            if(parent_selected == false){
+                for (var j=0, len=child_buttons.length; j<len; j++) {
+                    disable_button(child_buttons[j].id, service_list); // Disable each child
+                    console.log(child_buttons[j].id + " disabled.");
+                }
+            }
+        }
     }
 }
 
-function toggle_button_selected(calling_button_id){
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                          T O G G L E    T E R T I A R Y    B U T T O N S
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Flips the selected status of the button called on as well as its sibling buttons
+function toggle_tertiary_button(primary_service_message, service_list, grand_parent_div, parent_div, calling_button_id){
+    // If the button wasn not SELECTED, DESELECT all sibling buttons.
+    // Set the button to SELECTED.
     if($('#'+calling_button_id).data('btn_selected') == false){
+        // Get the list of all buttons under the button's div
+        var sibling_buttons =  Array.prototype.slice.call(parent_div.querySelectorAll('button'));
+        for (var i=0, len=sibling_buttons.length; i<len; i++) {
+            deselect_button(sibling_buttons[i].id);
+            console.log(sibling_buttons[i].id + " deselected.");
+        }
         select_button(calling_button_id);
+        console.log(calling_button_id + " selected.");
+
+        refresh_service_sked(primary_service_message, service_list, grand_parent_div, parent_div, calling_button_id);
+        /*
+        // Get the list of all buttons under the grand_parent div
+        var service_message = document.getElementById(calling_button_id).value;
+
+
+        // Get the list of all buttons under the parent div
+        var all_buttons =  Array.prototype.slice.call(grand_parent_div.querySelectorAll('button'));
+        // Get the buttons of the sub div
+        var sibling_buttons = Array.prototype.slice.call(parent_div.querySelectorAll('button'));
+        // Get the buttons of JUST the parent div
+        var parent_buttons = all_buttons.filter(function(obj) { return sibling_buttons.indexOf(obj) == -1; });
+        
+        // Clear all service from the specified list.
+        clear_service_list(service_list);
+
+        for (var i=0, len=parent_buttons.length; i<len; i++) {
+            if($('#'+parent_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
+                console.log("Adding line for " + parent_buttons[i].id);
+                var service_message = primary_service_message + "-";
+                service_message = service_message + document.getElementById(parent_buttons[i].id).value;
+                service_message = service_message + " - " + document.getElementById(calling_button_id).value;
+                add_to_service_sked(service_message, service_list);
+                console.log("Sending Service Message: " + service_message);
+            }
+        }
+        */
     }
     else{
         deselect_button(calling_button_id);
     }
 }
 
-function disable_button(calling_button_id){
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                          B U T T O N     H E L P E R     F U N C T I O N S
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Disables the button, deselects it, and resets it back to Grey/Black Scheme.
+function disable_button(calling_button_id, service_list){
     document.getElementById(calling_button_id).disabled = true;
     deselect_button(calling_button_id);
+    // Clear all service from the specified list.
+    clear_service_list(service_list);
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                      E N A B L E     B U T T O N
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Enables the button called on.
 function enable_button(calling_button_id){
     document.getElementById(calling_button_id).disabled = false;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                  C H E C K     B U T T O N     S T A T U S
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function check_enable_status(calling_button_id){
+    if(document.getElementById(calling_button_id).disabled == false){
+        return true;}
+    else{
+        return false;}
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                      S E L E C T     B U T T O N
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Set the button as SELECTED and change it to Green/White scheme.
 function select_button(calling_button_id){
     $('#'+calling_button_id).data('btn_selected', true);
     document.getElementById(calling_button_id).style.background = '#365E27'; // Make BG Green
     document.getElementById(calling_button_id).style.color = '#FFFFFF';// Make text White
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                                  D E S E L E C T     B U T T O N
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Deslects the buttons and sets it back to Grey/Black scheme.
 function deselect_button(calling_button_id){
+    $('#'+calling_button_id).data('btn_selected', false);
     document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
     document.getElementById(calling_button_id).style.color = '#2E2E2E'; // Make text Dark Grey
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                      A D D     S E R V I C E     TO     S E R V I C E     S K E D
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function add_to_service_sked(service_string, service_list){
+    var ul = document.getElementById(service_list);
+    var li = document.createElement('li');
 
+    // Add new part to the list
+    li.appendChild(document.createTextNode(service_string));
+    //li.setAttribute("part_req_id", ("part_" + (services_count)));
+    ul.appendChild(li);
+    //document.getElementById("remove_last_part_btn").style.display = 'block';
 
+    console.log("Adding - " + service_string);
+}
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                          R E F R E S H     S E R V I C E     S K E D
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function refresh_service_sked(primary_service_message, service_list, grand_parent_div, parent_div, calling_button_id){
+    var service_message = document.getElementById(calling_button_id).value;
+    // Get the list of all buttons under the parent div
+    var all_buttons =  Array.prototype.slice.call(grand_parent_div.querySelectorAll('button'));
+    // Get the buttons of the sub div
+    var sibling_buttons = Array.prototype.slice.call(parent_div.querySelectorAll('button'));
+    // Get the buttons of JUST the parent div
+    var parent_buttons = all_buttons.filter(function(obj) { return sibling_buttons.indexOf(obj) == -1; });
+        
+    // Clear all service from the specified list.
+    clear_service_list(service_list);
 
-/*
-function toggle_button_selected(calling_button_id){
-    console.log('RUNNING: toggle_button_selected FROM -> ' +calling_button_id);
-    if(document.getElementById(calling_button_id).disabled == true){
-        document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
-        document.getElementById(calling_button_id).style.color = '#2E2E2E'; // Make text Dark Grey
-        console.log('BR-1');
-    }
-    else if($('#'+calling_button_id).data('btn_selected') == false){
-        $('#'+calling_button_id).data('btn_selected', true);
-        document.getElementById(calling_button_id).style.background = '#365E27'; // Make BG Green
-        document.getElementById(calling_button_id).style.color = '#FFFFFF';// Make text White
-        console.log('BR-2');
-    }
-    else if({
-        $('#'+calling_button_id).data('btn_selected', false);
-        document.getElementById(calling_button_id).style.background = '#E6E6E6'; // Make BG Lt Grey
-        document.getElementById(calling_button_id).style.color = '#2E2E2E'; // Make text Dark Grey
-        console.log('BR-3');
+    for (var i=0, len=parent_buttons.length; i<len; i++) {
+        if($('#'+parent_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
+            console.log("Adding line for " + parent_buttons[i].id);
+            var service_message = primary_service_message + "-";
+            service_message = service_message + document.getElementById(parent_buttons[i].id).value;
+            service_message = service_message + " - " + document.getElementById(calling_button_id).value;
+            add_to_service_sked(service_message, service_list);
+            console.log("Sending Service Message: " + service_message);
+        }
     }
 }
-*/
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                          B U I L D     S E R V I C E     M E S S A G E
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function build_service_message(primary_service_message, calling_button_id, service_list){
+    clear_service_list(service_list);
+    var service_message = primary_service_message + " - ";
+    service_message = service_message + document.getElementById(calling_button_id).value;
+    add_to_service_sked(service_message, service_list);
+    console.log("Sending Service Message: " + service_message);
+}
 
-
-
-
-
-
-
-
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                          C L E A R     S E R V I C E     L I S T
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function clear_service_list(service_list){
+    var ul = document.getElementById(service_list);
+    $(ul).empty();
+    console.log("Clearing out "+service_list);
+}
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//                                                      M I N O R     F U N C T I O N S
+//                                                      H E L P E R     F U N C T I O N S
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
