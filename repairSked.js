@@ -266,110 +266,7 @@ function display_res_modal(btn, res_modal){
 //document.getElementById('.flat_rep_btn').addEventListener('click', showBtn); 
 //document.getElementById("btn2").style.display = "none";
 
-function toggle_flat_buttons() { 
-    if((document.getElementById("front_flat_btn").style.display) === 'block'){ 
-        document.getElementById("front_flat_btn").style.display = 'none'; 
-        document.getElementById("rear_flat_btn").style.display = 'none'; 
-        document.getElementById("std_tube_btn").style.display = 'none'; 
-        document.getElementById("hd_tube_btn").style.display = 'none'; 
-        //toggle_parts_req();
-    }
-    else{
-        document.getElementById("front_flat_btn").style.display = 'block'; 
-        document.getElementById("front_flat_btn").style.display = 'block'; 
-        document.getElementById("rear_flat_btn").style.display = 'block'; 
-        document.getElementById("std_tube_btn").style.display = 'block'; 
-        document.getElementById("hd_tube_btn").style.display = 'block'; 
-        toggle_parts_req();
-    }
-} 
 
-
-function toggle_brake_adj_buttons(){ 
-    if((document.getElementById("front_brake_btn").style.display) === 'block'){ 
-        document.getElementById("front_brake_btn").style.display = 'none'; 
-        document.getElementById("rear_brake_btn").style.display = 'none'; 
-        toggle_parts_req();
-    }
-    else{
-        document.getElementById("front_brake_btn").style.display = 'block'; 
-        document.getElementById("front_brake_btn").style.display = 'block'; 
-        document.getElementById("rear_brake_btn").style.display = 'block'; 
-        toggle_parts_req();
-    }
-} 
-
-function toggle_new_tire_buttons(){ 
-    if((document.getElementById("front_tire_btn").style.display) === 'block'){ 
-        document.getElementById("front_tire_btn").style.display = 'none'; 
-        document.getElementById("rear_tire_btn").style.display = 'none'; 
-        toggle_parts_req();
-    }
-    else{
-        document.getElementById("front_tire_btn").style.display = 'block'; 
-        document.getElementById("front_tire_btn").style.display = 'block'; 
-        document.getElementById("rear_tire_btn").style.display = 'block'; 
-        toggle_parts_req();
-    }
-} 
-
-function toggle_new_wheel_buttons(){ 
-    if((document.getElementById("front_wheel_btn").style.display) === 'block'){ 
-        document.getElementById("front_wheel_btn").style.display = 'none'; 
-        document.getElementById("rear_wheel_btn").style.display = 'none'; 
-        toggle_parts_req();
-    }
-    else{
-        document.getElementById("front_wheel_btn").style.display = 'block'; 
-        document.getElementById("front_wheel_btn").style.display = 'block'; 
-        document.getElementById("rear_wheel_btn").style.display = 'block'; 
-        toggle_parts_req();
-    }
-} 
-
-function toggle_tubeless_buttons(){ 
-    if((document.getElementById("front_tubeless_btn").style.display) === 'block'){ 
-        document.getElementById("front_tubeless_btn").style.display = 'none'; 
-        document.getElementById("rear_tubeless_btn").style.display = 'none'; 
-        toggle_parts_req();
-    }
-    else{
-        document.getElementById("front_tubeless_btn").style.display = 'block'; 
-        document.getElementById("front_tubeless_btn").style.display = 'block'; 
-        document.getElementById("rear_tubeless_btn").style.display = 'block'; 
-        toggle_parts_req();
-    }
-} 
-
-function toggle_der_adj_buttons(){ 
-    if((document.getElementById("front_der_btn").style.display) === 'block'){ 
-        document.getElementById("front_der_btn").style.display = 'none'; 
-        document.getElementById("rear_der_btn").style.display = 'none'; 
-        toggle_parts_req();
-    }
-    else{
-        document.getElementById("front_der_btn").style.display = 'block'; 
-        document.getElementById("front_der_btn").style.display = 'block'; 
-        document.getElementById("rear_der_btn").style.display = 'block'; 
-        toggle_parts_req();
-    }
-} 
-
-function toggle_tune_up_buttons() { 
-    if((document.getElementById("geared_tu_btn").style.display) === 'block'){ 
-        document.getElementById("geared_tu_btn").style.display = 'none'; 
-        document.getElementById("90_day_btn").style.display = 'none'; 
-        document.getElementById("sgl_spd_tu_btn").style.display = 'none'; 
-        toggle_parts_req();
-    }
-    else{
-        document.getElementById("geared_tu_btn").style.display = 'block'; 
-        document.getElementById("geared_tu_btn").style.display = 'block'; 
-        document.getElementById("90_day_btn").style.display = 'block'; 
-        document.getElementById("sgl_spd_tu_btn").style.display = 'block'; 
-        toggle_parts_req();
-    }
-} 
 
 function toggle_parts_req(){
     /*
@@ -772,20 +669,56 @@ function fill_customer_info(fname, lname, phone, text_opt){
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//                                                  A D D     F L A T     R E P A I R
+//                                              T O G G L E    P R I M A R Y    B U T T O N S
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function add_flat_repair(){
-    if((document.getElementById("geared_tu_btn").style.display) === 'block'){ 
-        document.getElementById("geared_tu_btn").style.display = 'none'; 
-        document.getElementById("90_day_btn").style.display = 'none'; 
-        document.getElementById("sgl_spd_tu_btn").style.display = 'none'; 
-        toggle_parts_req();
+function toggle_primary_button(parent_div, calling_button_id, service_list, primary_service_message){
+    // Get the list of all buttons under the parent div
+    var all_buttons =  Array.prototype.slice.call(parent_div.querySelectorAll('button'));
+     // Get the sub div 
+    var child_div = Array.prototype.slice.call(parent_div.querySelectorAll('div'));
+    var contains_child_buttons = false;
+    if(child_div.length > 0){
+        contains_child_buttons = true;
     }
+    if(contains_child_buttons){
+        // Get the buttons of the sub div
+        var child_buttons = Array.prototype.slice.call(child_div[0].querySelectorAll('button'));
+        // Get the buttons of JUST the parent div
+        var parent_buttons = all_buttons.filter(function(obj) { return child_buttons.indexOf(obj) == -1; });
+    }
+    
+    // TURN ON
+    if($('#'+calling_button_id).data('btn_selected') == false){
+        select_button(calling_button_id);
+        if(contains_child_buttons){
+            // Display the child buttons
+            for (var j=0, len=child_buttons.length; j<len; j++) {
+                $('#'+child_buttons[j].id).show();
+            }
+        }
+        else{
+            add_to_service_sked(primary_service_message, service_list, calling_button_id);
+        }
+    }
+
+    // TURN OFF
     else{
-        document.getElementById("geared_tu_btn").style.display = 'block'; 
-        document.getElementById("geared_tu_btn").style.display = 'block'; 
-        document.getElementById("90_day_btn").style.display = 'block'; 
-        toggle_parts_req();
+        deselect_button(calling_button_id);
+        if(contains_child_buttons){
+            for (var j=0, len=child_buttons.length; j<len; j++) {
+                $('#'+child_buttons[j].id).hide();
+                deselect_button(child_buttons[j].id);
+                remove_from_service_list(child_buttons[j].id, service_list);
+                // Disable the butto if it is greater than level 2
+                if($('#'+child_buttons[j].id).data('btn_level') > 2){
+                    disable_button(child_buttons[j].id, service_list);
+                }
+            }
+        }
+        else{
+            console.log("Clearing?");
+            remove_from_service_list(calling_button_id, service_list);
+        }
     }
 }
 
@@ -812,7 +745,7 @@ function toggle_secondary_button(parent_div, calling_button_id, service_list, pr
     if($('#'+calling_button_id).data('btn_selected') == false){
         if(contains_child_buttons){
             select_button(calling_button_id);
-            console.log(calling_button_id + " set to SELECTED.");
+            //console.log(calling_button_id + " set to SELECTED.");
             // Survey child buttons to check if they are enabled
             for (var j=0, len=child_buttons.length; j<len; j++) {
                 if(check_enable_status(child_buttons[j].id)){
@@ -820,21 +753,22 @@ function toggle_secondary_button(parent_div, calling_button_id, service_list, pr
                 }
                 else{
                     enable_button(child_buttons[j].id); // Re-Enable each child
-                    console.log(child_buttons[j].id + " enabled.");
+                    //console.log(child_buttons[j].id + " enabled.");
                 }
             }
         }
         else{
-            for (var i=0, len=all_buttons.length; i<len; i++) {
-                deselect_button(all_buttons[i].id);
-                console.log(all_buttons[i].id + " deselected.");
+            if($('#'+calling_button_id).data('mut_ex') == true){
+                for (var i=0, len=all_buttons.length; i<len; i++) {
+                    deselect_button(all_buttons[i].id);
+                    console.log(all_buttons[i].id + " deselected.");
+                }
             }
             select_button(calling_button_id);
             console.log(calling_button_id + " set to SELECTED.");
-            build_service_message(primary_service_message, calling_button_id, service_list);
+            build_service_message(primary_service_message, calling_button_id, service_list, all_buttons);
         }
     }
-
     //TURN OFF
     else{
         deselect_button(calling_button_id);
@@ -859,9 +793,6 @@ function toggle_secondary_button(parent_div, calling_button_id, service_list, pr
     }
 }
 
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //                                          T O G G L E    T E R T I A R Y    B U T T O N S
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -874,38 +805,12 @@ function toggle_tertiary_button(primary_service_message, service_list, grand_par
         var sibling_buttons =  Array.prototype.slice.call(parent_div.querySelectorAll('button'));
         for (var i=0, len=sibling_buttons.length; i<len; i++) {
             deselect_button(sibling_buttons[i].id);
-            console.log(sibling_buttons[i].id + " deselected.");
+            //console.log(sibling_buttons[i].id + " deselected.");
         }
         select_button(calling_button_id);
-        console.log(calling_button_id + " selected.");
+        //console.log(calling_button_id + " selected.");
 
         refresh_service_sked(primary_service_message, service_list, grand_parent_div, parent_div, calling_button_id);
-        /*
-        // Get the list of all buttons under the grand_parent div
-        var service_message = document.getElementById(calling_button_id).value;
-
-
-        // Get the list of all buttons under the parent div
-        var all_buttons =  Array.prototype.slice.call(grand_parent_div.querySelectorAll('button'));
-        // Get the buttons of the sub div
-        var sibling_buttons = Array.prototype.slice.call(parent_div.querySelectorAll('button'));
-        // Get the buttons of JUST the parent div
-        var parent_buttons = all_buttons.filter(function(obj) { return sibling_buttons.indexOf(obj) == -1; });
-        
-        // Clear all service from the specified list.
-        clear_service_list(service_list);
-
-        for (var i=0, len=parent_buttons.length; i<len; i++) {
-            if($('#'+parent_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
-                console.log("Adding line for " + parent_buttons[i].id);
-                var service_message = primary_service_message + "-";
-                service_message = service_message + document.getElementById(parent_buttons[i].id).value;
-                service_message = service_message + " - " + document.getElementById(calling_button_id).value;
-                add_to_service_sked(service_message, service_list);
-                console.log("Sending Service Message: " + service_message);
-            }
-        }
-        */
     }
     else{
         deselect_button(calling_button_id);
@@ -968,17 +873,21 @@ function deselect_button(calling_button_id){
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //                                      A D D     S E R V I C E     TO     S E R V I C E     S K E D
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function add_to_service_sked(service_string, service_list){
+function add_to_service_sked(service_string, service_list, calling_button_id){
     var ul = document.getElementById(service_list);
     var li = document.createElement('li');
+    var li_id = String(calling_button_id).replace('btn','id');
 
-    // Add new part to the list
-    li.appendChild(document.createTextNode(service_string));
-    //li.setAttribute("part_req_id", ("part_" + (services_count)));
-    ul.appendChild(li);
-    //document.getElementById("remove_last_part_btn").style.display = 'block';
-
-    console.log("Adding - " + service_string);
+    // Add text to li
+    $(li).text(service_string);
+    // Add id to li
+    $(li).attr('id', li_id);
+    //console.log("ID--> "+$(li).attr('id'));
+    // Add class to li
+    $(li).attr('class', 'chainring');
+    // Add li to the list
+    $(ul).append(li);
+    //console.log("Adding - " + service_string);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -998,34 +907,47 @@ function refresh_service_sked(primary_service_message, service_list, grand_paren
 
     for (var i=0, len=parent_buttons.length; i<len; i++) {
         if($('#'+parent_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
-            console.log("Adding line for " + parent_buttons[i].id);
-            var service_message = primary_service_message + "-";
+            var service_message = primary_service_message + " - ";
             service_message = service_message + document.getElementById(parent_buttons[i].id).value;
             service_message = service_message + " - " + document.getElementById(calling_button_id).value;
-            add_to_service_sked(service_message, service_list);
-            console.log("Sending Service Message: " + service_message);
+            add_to_service_sked(service_message, service_list, parent_buttons[i].id);
         }
     }
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//                                          B U I L D     S E R V I C E     M E S S A G E
+//                                              B U I L D     S E R V I C E     M E S S A G E
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function build_service_message(primary_service_message, calling_button_id, service_list){
+function build_service_message(primary_service_message, calling_button_id, service_list, sibling_buttons){
     clear_service_list(service_list);
-    var service_message = primary_service_message + " - ";
-    service_message = service_message + document.getElementById(calling_button_id).value;
-    add_to_service_sked(service_message, service_list);
-    console.log("Sending Service Message: " + service_message);
+
+    for (var i=0, len=sibling_buttons.length; i<len; i++) {
+        if($('#'+sibling_buttons[i].id).data('btn_selected') == true){  // If sibling parent button was selected
+            var service_message = primary_service_message + " - ";
+            service_message = service_message + document.getElementById(sibling_buttons[i].id).value;
+            add_to_service_sked(service_message, service_list, sibling_buttons[i].id);
+            //console.log("Sending Service Message: " + service_message);
+        }
+    }
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//                                          C L E A R     S E R V I C E     L I S T
+//                                                  C L E A R     S E R V I C E     L I S T
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function clear_service_list(service_list){
     var ul = document.getElementById(service_list);
     $(ul).empty();
-    console.log("Clearing out "+service_list);
+    //console.log("Clearing out "+service_list);
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                                          R E M O V E     F R O M     S E R V I C E     L I S T
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function remove_from_service_list(calling_button_id, service_list){
+    var ul = document.getElementById(service_list);
+    var li_id = String(calling_button_id).replace('btn','id');
+    $('#'+li_id).remove();
+    //console.log("Removing "+li_id+" from "+service_list);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

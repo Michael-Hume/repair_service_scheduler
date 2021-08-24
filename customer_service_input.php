@@ -58,7 +58,7 @@
             </div>
             <br><br>
             <div class="btn-block">
-                <button type="submit">continue</button>
+                <button type="submit">New Customer</button>
             </div>
         </form>
 
